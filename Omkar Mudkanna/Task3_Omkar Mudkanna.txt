@@ -1,0 +1,136 @@
+/*
+
+Omkar Mudkanna
+12010466
+
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+    int data;
+    struct node *next;
+};
+
+void insert_at_beg(struct node **head){
+    int info;
+    struct node *new_node = (struct node*)malloc(sizeof(struct node));
+    printf("\nEnter data to insert at beginning:");
+    scanf("%d",&info);
+    new_node->data = info;
+    new_node->next = *head;
+    *head = new_node;
+}
+    
+void insert_at_mid(struct node **head){
+    int info,mark;
+    struct node *new_node = (struct node*)malloc(sizeof(struct node));
+    printf("\nEnter data to insert at mid:");
+    scanf("%d",&info);
+    printf("\nEnter the data of node, to add new node: ");
+    scanf("%d",&mark);
+    new_node->data = info;
+    struct node *temp = *head;
+    while(temp->next != NULL){
+        if(temp->data == mark){
+            new_node->next = temp->next;
+            temp->next = new_node;
+        }
+        temp = temp->next;
+    }
+}
+    
+void insert_at_end(struct node **head){
+    int info;
+    printf("\nEnter Data to insert at end: ");
+    scanf("%d",&info);
+    struct node *new_node = (struct node*)malloc(sizeof(struct node));
+    new_node->data = info;
+    new_node->next = NULL;
+    if(*head == NULL){
+        *head = new_node;
+    }
+    else{
+        struct node *temp = *head;
+        while(temp->next != NULL){
+            temp = temp->next;
+        }
+        temp->next = new_node;
+    }
+}
+
+void del_node(struct node **head){
+    int info;
+    printf("\nEnter the data to delete: ");
+    scanf("%d",&info);
+    
+    struct node *temp;
+    if((*head)->data == info){
+        temp = *head;
+        *head = (*head)->next;
+        free(temp);
+    }
+    else{
+        struct node *tempp = *head;
+        while(tempp->next != NULL){
+            if(tempp->next->data == info){
+                temp = tempp->next;
+                tempp->next = tempp->next->next;
+                free(temp);
+                break;
+            }
+            else{
+                tempp = tempp->next;
+            }
+        }
+    }
+}
+ 
+void print_list(struct node *head){
+    struct node *temp = head;
+    while(temp != NULL){
+        printf("%d->",temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+}
+
+int main() {
+    
+    struct node *head = NULL;
+    
+    insert_at_beg(&head);
+    insert_at_beg(&head);
+    insert_at_beg(&head);
+    print_list(head);
+    
+    insert_at_end(&head);
+    print_list(head);
+    
+    insert_at_mid(&head);
+    print_list(head);
+    
+    del_node(&head);
+    print_list(head);
+    
+    
+    return 0;
+}
+/*
+Output
+Enter data to insert at beginning:1
+Enter data to insert at beginning:2
+Enter data to insert at beginning:3
+3->2->1->NULL
+
+Enter Data to insert at end: 8
+3->2->1->8->NULL
+
+Enter data to insert at mid:8
+Enter the data of node, to add new node: 3
+3->8->2->1->8->NULL
+
+Enter the data to delete: 8
+3->2->1->8->NULL
+*/
