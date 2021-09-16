@@ -1,0 +1,90 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    char brace[100];
+    int count;
+};
+
+struct node s = {.count = -1};
+
+void push(char b)
+{
+    s.count++;
+    s.brace[s.count] = b;
+}
+
+void pop()
+{
+    s.count--;
+}
+
+int isMatching(char arr)
+{
+    if (arr = '}' && s.brace[s.count] == '{')
+    {
+        pop();
+    }
+    else if (arr = ']' && s.brace[s.count] == '[')
+    {
+        pop();
+    }
+    else if (arr = ')' && s.brace[s.count] == '(')
+    {
+        pop();
+    }
+    else
+    {
+        return 0;
+    }
+    return 1;
+}
+
+int arebracebalanced(char arr[])
+{
+    int i;
+    while (arr[i])
+    {
+        if (arr[i] == '{' || arr[i] == '(' || arr[i] == '[')
+        {
+            push(arr[i]);
+        }
+        else if (arr[i] == '}' || arr[i] == ')' || arr[i] == ']')
+        {
+            if (s.count == -1)
+            {
+                return 0;
+            }
+            else if (!(isMatching(arr[i])))
+            {
+                return 0;
+            }
+        }
+        i++;
+    }
+    if (s.count == -1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+int main()
+{
+
+    char array[100] = "{()}[]";
+
+    if (arebracebalanced(array))
+    {
+        printf("\nBrackets are Balanced");
+    }
+    else
+    {
+        printf("\nBrackets are not Balanced");
+    }
+    return 0;
+}
