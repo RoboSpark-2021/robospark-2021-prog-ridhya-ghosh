@@ -95,7 +95,7 @@ int operator==(Box a, Box b){
 }
 
 int main(){
-    Box b1(5,7,8);
+    Box b1(5,6,8);
     cout<<"Volume of box b1 : "<<b1.getvolume()<<endl;
     b1.setl(8);
     cout<<"Volume of box b1 after l changed : "<<b1.getvolume()<<endl;
