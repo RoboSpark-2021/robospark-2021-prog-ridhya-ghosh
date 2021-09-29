@@ -69,6 +69,6 @@ int main()
 	cout<< "Area of Rectangle is "<<r3.getArea()<<endl;
 	return 0;
 }
-//code by Abhishek Ikhar
+//Code by Abhishek Ikhar
 
 

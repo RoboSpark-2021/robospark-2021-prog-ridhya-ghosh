@@ -9,7 +9,7 @@ member functions
 All class includes default constructor(if data members are present), and one function to get data from user for its data member.
 Note :- define all data members as protected so that you can access this members in its derived class directly
 */
-//CODE
+//code
 #include<iostream>
 using namespace std;
 

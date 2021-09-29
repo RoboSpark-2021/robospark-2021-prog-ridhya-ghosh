@@ -10,7 +10,7 @@ Create a class named Box which will have three private memebers length, breadth 
    d. >=
    e. ==
 */
-//CODE
+//code
 #include <iostream>
 using namespace std;
 

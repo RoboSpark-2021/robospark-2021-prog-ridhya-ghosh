@@ -45,4 +45,4 @@ int main()
         printf("%d ", *(ptr + i));
     }
 }
-// code by Abhishek Ikhar 
+// Code by Abhishek Ikhar 
