@@ -1,5 +1,4 @@
 /*
-
 B.
 Code for dynamic array using malloc/calloc, take size from user take data inputs, print them,
 again take size from user and realloc with new size, take user-data and again print new data.
