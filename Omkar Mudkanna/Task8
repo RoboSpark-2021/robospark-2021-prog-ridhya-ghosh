@@ -1,0 +1,160 @@
+#include <iostream>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Box
+{
+    int l, b, h;
+
+public:
+    Box()
+    {
+        l = 0;
+        b = 0;
+        h = 0;
+    }
+
+    Box(int a, int b, int c)
+    {
+        this->l = a;
+        this->b = b;
+        this->h = c;
+    }
+
+    int getvolume()
+    {
+        return l * b * h;
+    }
+
+    int getl()
+    {
+        return l;
+    }
+
+    int getb()
+    {
+        return b;
+    }
+
+    int geth()
+    {
+        return h;
+    }
+
+    void setl(int a)
+    {
+        this->l = a;
+    }
+
+    void setb(int b)
+    {
+        this->b = b;
+    }
+
+    void seth(int c)
+    {
+        this->h = c;
+    }
+
+    void dimension()
+    {
+        cout << "Dimensions : " << endl;
+        cout << "Length :  " << l << endl;
+        cout << "Breadth : " << b << endl;
+        cout << "Height :  " << h << endl;
+    }
+
+    friend int operator>(Box b1, Box b2);
+    friend int operator<(Box b1, Box b2);
+    friend int operator>=(Box b1, Box b2);
+    friend int operator<=(Box b1, Box b2);
+    friend int operator==(Box b1, Box b2);
+};
+
+int operator>(Box a, Box b)
+{
+    if (a.getvolume() > b.getvolume())
+        return 1;
+    else
+        return 0;
+}
+
+int operator<(Box a, Box b)
+{
+    if (a.getvolume() < b.getvolume())
+        return 1;
+    else
+        return 0;
+}
+
+int operator>=(Box a, Box b)
+{
+    if (a.getvolume() >= b.getvolume())
+        return 1;
+    else
+        return 0;
+}
+
+int operator<=(Box a, Box b)
+{
+    if (a.getvolume() <= b.getvolume())
+        return 1;
+    else
+        return 0;
+}
+
+int operator==(Box a, Box b)
+{
+    if (a.getvolume() == b.getvolume())
+        return 1;
+    else
+        return 0;
+}
+
+int main()
+{
+    Box b1(5, 10, 15);
+    b1.dimension();
+    cout << "Volume of Box B1: " << b1.getvolume() << endl;
+    b1.setl(2);
+    b1.setl(4);
+    b1.setl(8);
+    cout << "Volume of Box B1 (After using setters): " << b1.getvolume() << endl;
+    b1.dimension();
+    Box b2(1, 2, 3);
+    cout << "Comparison of Boxes";
+    if (b1 > b2)
+    {
+        cout << endl
+             << "B1 > B2" << endl;
+    }
+
+    if (b1 < b2)
+    {
+        cout << "B1 < B2" << endl;
+    }
+
+    if (b1 >= b2)
+    {
+        cout << "B1 >= B2" << endl;
+    }
+
+    if (b1 <= b2)
+    {
+        cout << "B1 <= B2" << endl;
+    }
+
+    if (b1 == b2)
+    {
+        cout << "B1 == B2" << endl;
+    }
+    else
+    {
+        cout << "B1 != B2" << endl;
+    }
+    return 0;
+}
