@@ -20,7 +20,7 @@ class personal_data{
         this->fname="Abhishek";
         this->lname="Ikhar";
         this->address="Rohana,Ta:Arvi,Dist:Wardha";
-        this->mobile="909672*8**";
+        this->mobile="9096727803";
         this->dob="17-07-2002";
     }
     void setdata(string f,string l,string a,string m,string d){
