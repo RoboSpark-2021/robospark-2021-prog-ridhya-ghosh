@@ -1,0 +1,160 @@
+#include <iostream>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Personal
+{
+protected:
+    string name, surname, address, mobile, dob;
+    Personal()
+    {
+        this->name = "Omkar";
+        this->surname = "Mudkanna";
+        this->address = "Khadakwasla";
+        this->mobile = "##########";
+        this->dob = "04/06/2002";
+    }
+    void setter1(string n, string s, string a, string mob, string d)
+    {
+        this->name = n;
+        this->surname = s;
+        this->address = a;
+        this->mobile = mob;
+        this->dob = d;
+    }
+};
+
+class Professional
+{
+protected:
+    string name_of_org, job_profile, project;
+    Professional()
+    {
+        this->name_of_org = "VIT,Pune";
+        this->job_profile = "Student SY";
+        this->project = "Hydrogen fuel producing plant design";
+    }
+    void setter2(string org, string jp, string p)
+    {
+        this->name_of_org = org;
+        this->job_profile = jp;
+        this->project = p;
+    }
+};
+
+class Academic
+{
+protected:
+    string college, branch;
+    int passing_year;
+    float cgpa;
+    Academic()
+    {
+        this->college = "VIT";
+        this->branch = "Chemical";
+        this->passing_year = 2024;
+        this->cgpa = 9.3;
+    }
+    void setter3(string clg, string bh, int p, float cgpa)
+    {
+        this->college = clg;
+        this->branch = bh;
+        this->passing_year = p;
+        this->cgpa = cgpa;
+    }
+};
+
+class Biodata : protected Personal, protected Professional, protected Academic
+{
+public:
+    void Print_Biodata()
+    {
+        cout << "Name : " << name << endl;
+        cout << "Surname : " << surname << endl;
+        cout << "Address : " << address << endl;
+        cout << "Mobile No. : " << mobile << endl;
+        cout << "Date of Birth : " << dob << endl;
+        cout << "Name of Organization : " << name_of_org << endl;
+        cout << "Job Profile : " << job_profile << endl;
+        cout << "Project : " << project << endl;
+        cout << "College Name : " << college << endl;
+        cout << "Branch : " << branch << endl;
+        cout << "Year of Passing : " << passing_year << endl;
+        cout << "CGPA : " << cgpa << endl;
+        return;
+    }
+    void personal_data(string _name, string _surname, string _address, string _mobile, string _dob)
+    {
+        setter1(_name, _surname, _address, _mobile, _dob);
+    }
+    void professional_data(string _name_of_org, string _job_profile, string _project)
+    {
+        setter2(_name_of_org, _job_profile, _project);
+    }
+    void academic_data(string _college, string _branch, int _passing_year, float _cgpa)
+    {
+        setter3(_college, _branch, _passing_year, _cgpa);
+    }
+};
+
+int main()
+{
+    int passing_year;
+    float cgpa;
+    string name, surname, address, mobile, dob, name_of_org, job_profile, project, college, branch;
+
+    Biodata Omkar_Mudkanna;
+    cout << endl
+         << "Data Introduced By Constructors : " << endl;
+    Omkar_Mudkanna.Print_Biodata();
+
+    cout << "Enter name: " << endl;
+    cin >> name;
+
+    cout << "Enter surname: " << endl;
+    cin >> surname;
+
+    cout << "Enter address: " << endl;
+    cin >> address;
+
+    cout << "Enter mobile number: " << endl;
+    cin >> mobile;
+
+    cout << "Enter DOB(dd/mm/yyyy): " << endl;
+    cin >> dob;
+
+    Omkar_Mudkanna.personal_data(name, surname, address, mobile, dob);
+
+    cout << "Enter Name of Organization: " << endl;
+    cin >> name_of_org;
+
+    cout << "Enter Job Profile: " << endl;
+    cin >> job_profile;
+
+    cout << "Enter Project name: " << endl;
+    cin >> project;
+
+    Omkar_Mudkanna.professional_data(name_of_org, job_profile, project);
+
+    cout << "Enter College: " << endl;
+    cin >> college;
+
+    cout << "Enter Branch: " << endl;
+    cin >> branch;
+
+    cout << "Enter Passing Year: " << endl;
+    cin >> passing_year;
+
+    cout << "Enter CGPA: " << endl;
+    cin >> cgpa;
+
+    Omkar_Mudkanna.academic_data(college, branch, passing_year, cgpa);
+
+    cout << endl
+         << "Data Updated Using Setters : " << endl;
+    Omkar_Mudkanna.Print_Biodata();
+}
