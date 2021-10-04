@@ -1,0 +1,16 @@
+#box {
+  background-color: lightblue;
+  border-radius: 5%;
+  position: absolute;
+  /* top: 50%; */
+  /* transform: translate(0, -50%);
+  width: fit-content;
+  block-size: fit-content; */
+  padding: 3%;
+  padding-top: 0;
+  padding-bottom: 1%;
+  width: 20%;
+  height: 50%;
+  margin-left: 37.5%;
+  margin-top: 10%;
+}
