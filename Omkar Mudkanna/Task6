@@ -1,0 +1,80 @@
+// Create a class named 'Rectangle' with two data members- length and breadth and a function to calculate the area which is 'length*breadth'. The class has three constructors which are :
+// 1 - having no parameter - values of both length and breadth are assigned zero.
+// 2 - having two numbers as parameters - the two numbers are assigned as length and breadth respectively.
+// 3 - having one number as parameter - both length and breadth are assigned that number.
+// Now, create objects of the 'Rectangle' class having none, one and two parameters and print their areas.
+// Use getter and setter functions for each attribute of the class.
+
+#include <iostream>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Rectangle
+{
+
+public:
+    int x, y;
+
+    Rectangle()
+    {
+        x = 0, y = 0;
+    }
+
+    Rectangle(int p, int q)
+    {
+        x = p;
+        y = q;
+    }
+
+    Rectangle(int s)
+    {
+        x = s;
+        y = s;
+    }
+
+    void setter(int p, int q)
+    {
+        x = p;
+        y = q;
+    }
+
+    int getter()
+    {
+        return x, y;
+    }
+
+    int get_area()
+    {
+        return x * y;
+    }
+};
+
+int main()
+{
+
+    Rectangle r1, r2(5, 10), r3(10);
+    int a, b;
+
+    cout << "Object having no parameters : Area = " << r1.get_area() << " , Length: Breadth :: " << r1.x << " : " << r1.y << endl;
+
+    r1.setter(3, 4);
+    cout << "Object having no parameters (After using setter) : Area = " << r1.get_area() << " , Length: Breadth :: " << r1.x << " : " << r1.y << endl
+         << endl;
+
+    cout << "Object having parameters : Area = " << r2.get_area() << " , Length: Breadth :: " << r2.x << " : " << r2.y << endl;
+
+    r2.setter(4, 5);
+    cout << "Object having parameters (After using setter) : Area = " << r2.get_area() << " , Length: Breadth :: " << r2.x << " : " << r2.y << endl
+         << endl;
+
+    cout << "Object having parameters : Area = " << r3.get_area() << " , Length: Breadth :: " << r3.x << " : " << r3.y << endl;
+
+    r3.setter(5, 6);
+    cout << "Object having parameters (After using setter) : Area = " << r3.get_area() << " , Length: Breadth :: " << r3.x << " : " << r3.y << endl;
+
+    return 0;
+}

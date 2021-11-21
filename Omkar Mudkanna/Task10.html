@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.73), rgba(0, 0, 0, 0.73)),
+    url(https://wallpaperaccess.com/full/187161.jpg);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+#box {
+  background-color: lightblue;
+  border-radius: 5%;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: fit-content;
+  block-size: fit-content;
+  padding: 3%;
+  padding-top: 0;
+  padding-bottom: 1%;
+}
+
+#heading {
+  margin-top: 1rem;
+  text-align: center;
+  padding: 1%;
+}
+
+#username,
+#password {
+  font-size: 14px;
+  width: 15vw;
+  border-bottom-color: teal;
+  border-radius: 2px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  background-color: transparent;
+  padding: 5px;
+}
+
+#login {
+  padding: 5px;
+  font-size: 18px;
+  background-color: greenyellow;
+  border-color: greenyellow;
+  border-radius: 10px;
+}
+
+#login:hover {
+  background-color: green;
+  font-size: 18px;
+  color: white;
+  border-radius: 10px;
+  border-color: green;
+}
+</style>
+</head>
+<body>
+    <div id="box">
+        <h1 id="heading">Login</h1>
+        <input type="text" placeholder="Username" id="username">
+        <br><br>h1
+        <input type="password" placeholder="Password" id="password">
+        <br><br><br>       
+        <a href="#">Forgot your password?</a>
+        <br><br><br>
+        <center><p id="login">Login</p></center>
+    </div>
+    <script>
+        function display() {
+                console.log("Username: ", username);
+                console.log("Password: ", password);
+            }
+
+            document.getElementById("login").addEventListener("click", () => {
+                console.log(document.getElementById("username").value);
+                console.log(document.getElementById("password").value);
+            })
+    </script>
+</body>
+</html>
